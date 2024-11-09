@@ -8,7 +8,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body {
-  font-family: 'Roboto', sans-sarif; /* Clean modern font */
+  font-family: 'Roboto', sans-serif; /* Fixed typo: sans-sarif to sans-serif */
   background-color: #1a1a2e; /* Dark navy */
   color: #eaeaea; /* Light gray */
   margin: 0;
@@ -29,6 +29,7 @@ body {
   gap: 25px;
   list-style-type: none;
   padding: 0;
+  flex-wrap: wrap; /* Make header buttons wrap on smaller screens */
 }
 
 .header-buttons li {
@@ -51,10 +52,12 @@ body {
   margin: 0 auto;
   padding: 20px;
   max-width: 1200px; /* Keeps content centered and responsive */
+  flex-wrap: wrap; /* Adjust layout for smaller screens */
 }
 
 .introduction {
   flex-basis: 60%; /* Left section for text */
+  margin-bottom: 20px; /* Add spacing on smaller screens */
 }
 
 .introduction h1 {
@@ -76,6 +79,7 @@ body {
   display: flex;
   gap: 50px;
   align-items: center;
+  flex-wrap: wrap; /* Wrap links on smaller screens */
 }
 
 .social-links li {
@@ -101,7 +105,7 @@ body {
 
 .profile-image img {
   margin-top: 70px;
-  border-radius: 00%;
+  border-radius: 50%; /* Fixed: Applied proper rounding for profile image */
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Circular frame with shadow */
   width: 400px;
   height: 400px;
@@ -111,4 +115,50 @@ body {
 
 .profile-image img:hover {
   transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .introduction h1 {
+    font-size: 3rem; /* Reduce heading size */
+  }
+
+  .profile-image img {
+    width: 300px;
+    height: 300px; /* Smaller image on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column; /* Stack content vertically */
+    text-align: center; /* Center align for better readability */
+  }
+
+  .introduction {
+    flex-basis: 100%;
+  }
+
+  .profile-image {
+    flex-basis: 100%;
+  }
+
+  .header-buttons li {
+    font-size: 1.2rem; /* Smaller font for buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  .introduction p {
+    font-size: 1rem; /* Smaller text for mobile */
+  }
+
+  .social-links {
+    gap: 20px; /* Narrower gaps between icons */
+  }
+
+  .profile-image img {
+    width: 200px;
+    height: 200px; /* Smaller image for mobile */
+  }
 }
